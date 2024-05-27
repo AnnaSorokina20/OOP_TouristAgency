@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using TourAgency.Data;
 using TourAgency.Models;
@@ -19,10 +20,14 @@ namespace TourAgency.Services
             return _context.Bookings.Find(id);
         }
 
-        public List<Booking> GetAllBookings()
+        public IEnumerable<Booking> GetAllBookings()
         {
-            return _context.Bookings.ToList();
+            return _context.Bookings
+                           .Include(b => b.User)
+                           .Include(b => b.Tour)
+                           .ToList();
         }
+
 
         public void AddBooking(Booking booking)
         {

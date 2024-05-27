@@ -33,7 +33,17 @@ namespace TourAgency
         private void LoadBookings()
         {
             var bookings = _bookingService.GetAllBookings();
-            dataGridView1.DataSource = bookings.ToList();
+            var bookingsWithUserEmails = bookings.Select(b => new
+            {
+                b.Id,
+                b.TourId,
+                Tour = b.Tour?.GetType().Name ?? "Unknown",
+                b.UserId,
+                User = b.User?.Email ?? "Unknown",
+                b.BookingDate,
+                b.Status
+            }).ToList();
+            dataGridView1.DataSource = bookingsWithUserEmails;
         }
 
         private void buttonBackToTours_Click(object sender, EventArgs e)
@@ -47,11 +57,21 @@ namespace TourAgency
         {
             var query = textBox1.Text.ToLower();
             var bookings = _bookingService.GetAllBookings()
-                .Where(b => b.Tour.DestinationCountry.ToLower().Contains(query) ||
-                            b.Tour.DepartureCity.ToLower().Contains(query) ||
-                            b.User.Email.ToLower().Contains(query))
+                .Where(b => (b.Tour?.DestinationCountry.ToLower().Contains(query) ?? false) ||
+                            (b.Tour?.DepartureCity.ToLower().Contains(query) ?? false) ||
+                            (b.User?.Email.ToLower().Contains(query) ?? false))
                 .ToList();
-            dataGridView1.DataSource = bookings;
+            var bookingsWithUserEmails = bookings.Select(b => new
+            {
+                b.Id,
+                b.TourId,
+                Tour = b.Tour?.GetType().Name ?? "Unknown",
+                b.UserId,
+                User = b.User?.Email ?? "Unknown",
+                b.BookingDate,
+                b.Status
+            }).ToList();
+            dataGridView1.DataSource = bookingsWithUserEmails;
         }
     }
 }

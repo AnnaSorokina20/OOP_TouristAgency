@@ -130,6 +130,7 @@
             numericUpDownMinPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
             numericUpDownMinPrice.Location = new Point(565, 44);
             numericUpDownMinPrice.Margin = new Padding(3, 4, 3, 4);
+            numericUpDownMinPrice.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericUpDownMinPrice.Name = "numericUpDownMinPrice";
             numericUpDownMinPrice.Size = new Size(138, 32);
             numericUpDownMinPrice.TabIndex = 4;
@@ -141,9 +142,12 @@
             numericUpDownMaxPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
             numericUpDownMaxPrice.Location = new Point(709, 44);
             numericUpDownMaxPrice.Margin = new Padding(3, 4, 3, 4);
+            numericUpDownMaxPrice.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericUpDownMaxPrice.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownMaxPrice.Name = "numericUpDownMaxPrice";
             numericUpDownMaxPrice.Size = new Size(138, 32);
             numericUpDownMaxPrice.TabIndex = 5;
+            numericUpDownMaxPrice.Value = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDownMaxPrice.ValueChanged += numericUpDownMaxPrice_ValueChanged;
             // 
             // textBoxDepartureCity
@@ -183,6 +187,7 @@
             dataGridView1.RowTemplate.Height = 28;
             dataGridView1.Size = new Size(1116, 509);
             dataGridView1.TabIndex = 8;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // buttonSearch
             // 

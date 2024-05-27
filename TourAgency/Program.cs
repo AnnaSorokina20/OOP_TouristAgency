@@ -36,6 +36,7 @@ namespace TourAgency
             services.AddTransient<ManageToursForm>();
             services.AddTransient<ManageBookingForm>();
             services.AddTransient<SearchToursForm>();
+            services.AddTransient<ViewBookingsForm>();
             services.AddSingleton<UserSession>();
             services.AddScoped<ITourService, TourService>();
             services.AddScoped<IBookingService, BookingService>();
