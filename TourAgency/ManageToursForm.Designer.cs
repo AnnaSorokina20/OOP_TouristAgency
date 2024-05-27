@@ -26,6 +26,7 @@
             dataGridView1 = new DataGridView();
             EditColumn = new DataGridViewButtonColumn();
             DeleteColumn = new DataGridViewButtonColumn();
+            buttonLogout = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -43,6 +44,7 @@
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 2);
+            tableLayoutPanel1.Controls.Add(buttonLogout, 3, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
@@ -52,7 +54,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1333, 865);
+            tableLayoutPanel1.Size = new Size(1536, 865);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonAdd
@@ -109,7 +111,7 @@
             textBox1.Location = new Point(265, 95);
             textBox1.Margin = new Padding(5, 6, 5, 6);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(1263, 39);
+            textBox1.Size = new Size(1266, 39);
             textBox1.TabIndex = 4;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -117,13 +119,13 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { EditColumn, DeleteColumn });
-            tableLayoutPanel1.SetColumnSpan(dataGridView1, 3);
+            tableLayoutPanel1.SetColumnSpan(dataGridView1, 4);
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(5, 146);
             dataGridView1.Margin = new Padding(5, 6, 5, 6);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1323, 713);
+            dataGridView1.Size = new Size(1526, 713);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -145,11 +147,22 @@
             DeleteColumn.UseColumnTextForButtonValue = true;
             DeleteColumn.Width = 150;
             // 
+            // buttonLogout
+            // 
+            buttonLogout.Dock = DockStyle.Top;
+            buttonLogout.Location = new Point(1339, 3);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(194, 34);
+            buttonLogout.TabIndex = 6;
+            buttonLogout.Text = "Logout";
+            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
+            // 
             // ManageToursForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1333, 865);
+            ClientSize = new Size(1536, 865);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(5, 6, 5, 6);
             Name = "ManageToursForm";
@@ -172,5 +185,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewButtonColumn EditColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteColumn;
+        private Button buttonLogout;
     }
 }

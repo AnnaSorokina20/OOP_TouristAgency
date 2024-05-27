@@ -84,5 +84,21 @@ namespace TourAgency
             }
         }
 
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            var mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+            if (mainForm == null)
+            {
+                mainForm = _serviceProvider.GetRequiredService<MainForm>();
+                mainForm.Show();
+            }
+            else
+            {
+                mainForm.BringToFront();
+                mainForm.Show();
+            }
+            this.Close();
+
+        }
     }
 }

@@ -3,8 +3,44 @@
   <Class Name="TourAgency.Program">
     <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAADAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TourAgency.Data.DesignTimeDbContextFactory" Collapsed="true">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DesignTimeDbContextFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TourAgency.Data.TourAgencyContext" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAACAAAAAgAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\TourAgencyContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TourAgency.Models.BaseEntity" Collapsed="true">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TourAgency.Models.Booking" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhAAAEAAAAAIAAAAAAAAgAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\Booking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TourAgency.Models.PremiumTour" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PremiumTour.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
