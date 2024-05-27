@@ -14,43 +14,47 @@ namespace TourAgency.Services
             _context = context;
         }
 
-        public Tour GetTourById(int id)
-        {
-            // Пытаемся найти тур в обоих наборах данных
-            var tour = _context.PremiumTours.Find(id) as Tour ?? _context.StandardTours.Find(id);
-            return tour;
-        }
-
         public List<Tour> GetAllTours()
         {
-            // Объединяем оба набора данных в один список
-            return _context.PremiumTours.Cast<Tour>().Concat(_context.StandardTours).ToList();
+            var premiumTours = _context.PremiumTours.Cast<Tour>().ToList();
+            var standardTours = _context.StandardTours.Cast<Tour>().ToList();
+            var allTours = premiumTours.Concat(standardTours).ToList();
+            return allTours;
         }
 
         public void AddTour(Tour tour)
         {
-            if (tour is PremiumTour premiumTour)
+            if (tour is PremiumTour)
             {
-                _context.PremiumTours.Add(premiumTour);
+                _context.PremiumTours.Add(tour as PremiumTour);
             }
-            else if (tour is StandardTour standardTour)
+            else if (tour is StandardTour)
             {
-                _context.StandardTours.Add(standardTour);
+                _context.StandardTours.Add(tour as StandardTour);
             }
             _context.SaveChanges();
         }
 
         public void UpdateTour(Tour tour)
         {
-            if (tour is PremiumTour premiumTour)
+            if (tour is PremiumTour)
             {
-                _context.PremiumTours.Update(premiumTour);
+                _context.PremiumTours.Update(tour as PremiumTour);
             }
-            else if (tour is StandardTour standardTour)
+            else if (tour is StandardTour)
             {
-                _context.StandardTours.Update(standardTour);
+                _context.StandardTours.Update(tour as StandardTour);
             }
             _context.SaveChanges();
+        }
+
+        public Tour GetTourById(int id)
+        {
+            var premiumTour = _context.PremiumTours.FirstOrDefault(t => t.Id == id);
+            if (premiumTour != null) return premiumTour;
+
+            var standardTour = _context.StandardTours.FirstOrDefault(t => t.Id == id);
+            return standardTour;
         }
 
         public void DeleteTour(int id)
@@ -58,13 +62,13 @@ namespace TourAgency.Services
             var tour = GetTourById(id);
             if (tour != null)
             {
-                if (tour is PremiumTour premiumTour)
+                if (tour is PremiumTour)
                 {
-                    _context.PremiumTours.Remove(premiumTour);
+                    _context.PremiumTours.Remove(tour as PremiumTour);
                 }
-                else if (tour is StandardTour standardTour)
+                else if (tour is StandardTour)
                 {
-                    _context.StandardTours.Remove(standardTour);
+                    _context.StandardTours.Remove(tour as StandardTour);
                 }
                 _context.SaveChanges();
             }

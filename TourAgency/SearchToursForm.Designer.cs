@@ -46,6 +46,7 @@
             textBoxDestinationCountry = new TextBox();
             dataGridView1 = new DataGridView();
             buttonSearch = new Button();
+            buttonMyBooking = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMinPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaxPrice).BeginInit();
@@ -70,6 +71,7 @@
             tableLayoutPanel1.Controls.Add(textBoxDestinationCountry, 1, 1);
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 2);
             tableLayoutPanel1.Controls.Add(buttonSearch, 4, 1);
+            tableLayoutPanel1.Controls.Add(buttonMyBooking, 4, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -126,41 +128,45 @@
             // 
             numericUpDownMinPrice.Dock = DockStyle.Fill;
             numericUpDownMinPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            numericUpDownMinPrice.Location = new Point(565, 30);
+            numericUpDownMinPrice.Location = new Point(565, 44);
             numericUpDownMinPrice.Margin = new Padding(3, 4, 3, 4);
             numericUpDownMinPrice.Name = "numericUpDownMinPrice";
             numericUpDownMinPrice.Size = new Size(138, 32);
             numericUpDownMinPrice.TabIndex = 4;
+            numericUpDownMinPrice.ValueChanged += numericUpDownMinPrice_ValueChanged;
             // 
             // numericUpDownMaxPrice
             // 
             numericUpDownMaxPrice.Dock = DockStyle.Fill;
             numericUpDownMaxPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            numericUpDownMaxPrice.Location = new Point(709, 30);
+            numericUpDownMaxPrice.Location = new Point(709, 44);
             numericUpDownMaxPrice.Margin = new Padding(3, 4, 3, 4);
             numericUpDownMaxPrice.Name = "numericUpDownMaxPrice";
             numericUpDownMaxPrice.Size = new Size(138, 32);
             numericUpDownMaxPrice.TabIndex = 5;
+            numericUpDownMaxPrice.ValueChanged += numericUpDownMaxPrice_ValueChanged;
             // 
             // textBoxDepartureCity
             // 
             textBoxDepartureCity.Dock = DockStyle.Fill;
             textBoxDepartureCity.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDepartureCity.Location = new Point(3, 30);
+            textBoxDepartureCity.Location = new Point(3, 44);
             textBoxDepartureCity.Margin = new Padding(3, 4, 3, 4);
             textBoxDepartureCity.Name = "textBoxDepartureCity";
             textBoxDepartureCity.Size = new Size(275, 32);
             textBoxDepartureCity.TabIndex = 6;
+            textBoxDepartureCity.TextChanged += textBoxDepartureCity_TextChanged;
             // 
             // textBoxDestinationCountry
             // 
             textBoxDestinationCountry.Dock = DockStyle.Fill;
             textBoxDestinationCountry.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDestinationCountry.Location = new Point(284, 30);
+            textBoxDestinationCountry.Location = new Point(284, 44);
             textBoxDestinationCountry.Margin = new Padding(3, 4, 3, 4);
             textBoxDestinationCountry.Name = "textBoxDestinationCountry";
             textBoxDestinationCountry.Size = new Size(275, 32);
             textBoxDestinationCountry.TabIndex = 7;
+            textBoxDestinationCountry.TextChanged += textBoxDestinationCountry_TextChanged;
             // 
             // dataGridView1
             // 
@@ -169,26 +175,39 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableLayoutPanel1.SetColumnSpan(dataGridView1, 5);
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 78);
+            dataGridView1.Location = new Point(3, 92);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new Size(1116, 523);
+            dataGridView1.Size = new Size(1116, 509);
             dataGridView1.TabIndex = 8;
             // 
             // buttonSearch
             // 
             buttonSearch.Dock = DockStyle.Fill;
             buttonSearch.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonSearch.Location = new Point(853, 30);
+            buttonSearch.Location = new Point(853, 44);
             buttonSearch.Margin = new Padding(3, 4, 3, 4);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(266, 40);
             buttonSearch.TabIndex = 9;
             buttonSearch.Text = "Пошук";
             buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // buttonMyBooking
+            // 
+            buttonMyBooking.Dock = DockStyle.Fill;
+            buttonMyBooking.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonMyBooking.Location = new Point(853, 3);
+            buttonMyBooking.Name = "buttonMyBooking";
+            buttonMyBooking.Size = new Size(266, 34);
+            buttonMyBooking.TabIndex = 10;
+            buttonMyBooking.Text = "Мої бронювання";
+            buttonMyBooking.UseVisualStyleBackColor = true;
+            buttonMyBooking.Click += buttonMyBooking_Click;
             // 
             // SearchToursForm
             // 
@@ -199,6 +218,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "SearchToursForm";
             Text = "SearchToursForm";
+            Load += SearchToursForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMinPrice).EndInit();
@@ -220,5 +240,6 @@
         private TextBox textBoxDestinationCountry;
         private DataGridView dataGridView1;
         private Button buttonSearch;
+        private Button buttonMyBooking;
     }
 }

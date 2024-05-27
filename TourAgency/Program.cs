@@ -31,23 +31,15 @@ namespace TourAgency
             services.AddDbContext<TourAgencyContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            // Register forms
-            services.AddTransient<AuthForm>();
             services.AddTransient<MainForm>();
+            services.AddTransient<AuthForm>();
             services.AddTransient<ManageToursForm>();
-            services.AddTransient<SearchToursForm>();
-            services.AddTransient<SearchToursForm>();
-            services.AddTransient<AddEditTourForm>();
             services.AddTransient<ManageBookingForm>();
-            services.AddTransient<ViewBookingsForm>();
-
-            // Register services
-            services.AddScoped<IUserService, UserService>();
+            services.AddTransient<SearchToursForm>();
+            services.AddSingleton<UserSession>();
             services.AddScoped<ITourService, TourService>();
             services.AddScoped<IBookingService, BookingService>();
-
-            services.AddSingleton<UserSession>();
-
+            services.AddScoped<IUserService, UserService>();
         }
         private static IConfiguration LoadConfiguration()
         {
