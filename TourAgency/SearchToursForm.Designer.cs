@@ -47,6 +47,7 @@
             dataGridView1 = new DataGridView();
             buttonSearch = new Button();
             buttonMyBooking = new Button();
+            buttonLogout = new Button();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMinPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaxPrice).BeginInit();
@@ -55,12 +56,13 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 5;
+            tableLayoutPanel1.ColumnCount = 6;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 144F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 144F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 271F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
@@ -72,6 +74,7 @@
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 2);
             tableLayoutPanel1.Controls.Add(buttonSearch, 4, 1);
             tableLayoutPanel1.Controls.Add(buttonMyBooking, 4, 0);
+            tableLayoutPanel1.Controls.Add(buttonLogout, 5, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -80,8 +83,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 494F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
-            tableLayoutPanel1.Size = new Size(1122, 605);
+            tableLayoutPanel1.Size = new Size(1277, 605);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -98,7 +100,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(284, 0);
+            label2.Location = new Point(305, 0);
             label2.Name = "label2";
             label2.Size = new Size(178, 26);
             label2.TabIndex = 1;
@@ -108,7 +110,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(565, 0);
+            label3.Location = new Point(607, 0);
             label3.Name = "label3";
             label3.Size = new Size(101, 26);
             label3.TabIndex = 2;
@@ -118,7 +120,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(709, 0);
+            label4.Location = new Point(751, 0);
             label4.Name = "label4";
             label4.Size = new Size(118, 26);
             label4.TabIndex = 3;
@@ -128,7 +130,7 @@
             // 
             numericUpDownMinPrice.Dock = DockStyle.Fill;
             numericUpDownMinPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            numericUpDownMinPrice.Location = new Point(565, 44);
+            numericUpDownMinPrice.Location = new Point(607, 44);
             numericUpDownMinPrice.Margin = new Padding(3, 4, 3, 4);
             numericUpDownMinPrice.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericUpDownMinPrice.Name = "numericUpDownMinPrice";
@@ -140,7 +142,7 @@
             // 
             numericUpDownMaxPrice.Dock = DockStyle.Fill;
             numericUpDownMaxPrice.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            numericUpDownMaxPrice.Location = new Point(709, 44);
+            numericUpDownMaxPrice.Location = new Point(751, 44);
             numericUpDownMaxPrice.Margin = new Padding(3, 4, 3, 4);
             numericUpDownMaxPrice.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDownMaxPrice.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -157,7 +159,7 @@
             textBoxDepartureCity.Location = new Point(3, 44);
             textBoxDepartureCity.Margin = new Padding(3, 4, 3, 4);
             textBoxDepartureCity.Name = "textBoxDepartureCity";
-            textBoxDepartureCity.Size = new Size(275, 32);
+            textBoxDepartureCity.Size = new Size(296, 32);
             textBoxDepartureCity.TabIndex = 6;
             textBoxDepartureCity.TextChanged += textBoxDepartureCity_TextChanged;
             // 
@@ -165,10 +167,10 @@
             // 
             textBoxDestinationCountry.Dock = DockStyle.Fill;
             textBoxDestinationCountry.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDestinationCountry.Location = new Point(284, 44);
+            textBoxDestinationCountry.Location = new Point(305, 44);
             textBoxDestinationCountry.Margin = new Padding(3, 4, 3, 4);
             textBoxDestinationCountry.Name = "textBoxDestinationCountry";
-            textBoxDestinationCountry.Size = new Size(275, 32);
+            textBoxDestinationCountry.Size = new Size(296, 32);
             textBoxDestinationCountry.TabIndex = 7;
             textBoxDestinationCountry.TextChanged += textBoxDestinationCountry_TextChanged;
             // 
@@ -177,7 +179,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tableLayoutPanel1.SetColumnSpan(dataGridView1, 5);
+            tableLayoutPanel1.SetColumnSpan(dataGridView1, 6);
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(3, 92);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
@@ -185,18 +187,19 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new Size(1116, 509);
+            dataGridView1.Size = new Size(1271, 509);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // buttonSearch
             // 
+            tableLayoutPanel1.SetColumnSpan(buttonSearch, 2);
             buttonSearch.Dock = DockStyle.Fill;
             buttonSearch.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonSearch.Location = new Point(853, 44);
+            buttonSearch.Location = new Point(895, 44);
             buttonSearch.Margin = new Padding(3, 4, 3, 4);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(266, 40);
+            buttonSearch.Size = new Size(379, 40);
             buttonSearch.TabIndex = 9;
             buttonSearch.Text = "Пошук";
             buttonSearch.UseVisualStyleBackColor = true;
@@ -206,19 +209,29 @@
             // 
             buttonMyBooking.Dock = DockStyle.Fill;
             buttonMyBooking.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonMyBooking.Location = new Point(853, 3);
+            buttonMyBooking.Location = new Point(895, 3);
             buttonMyBooking.Name = "buttonMyBooking";
-            buttonMyBooking.Size = new Size(266, 34);
+            buttonMyBooking.Size = new Size(265, 34);
             buttonMyBooking.TabIndex = 10;
             buttonMyBooking.Text = "Мої бронювання";
             buttonMyBooking.UseVisualStyleBackColor = true;
             buttonMyBooking.Click += buttonMyBooking_Click;
             // 
+            // buttonLogout
+            // 
+            buttonLogout.Location = new Point(1166, 3);
+            buttonLogout.Name = "buttonLogout";
+            buttonLogout.Size = new Size(108, 34);
+            buttonLogout.TabIndex = 11;
+            buttonLogout.Text = "Logout";
+            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.Click += buttonLogout_Click;
+            // 
             // SearchToursForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1122, 605);
+            ClientSize = new Size(1277, 605);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "SearchToursForm";
@@ -246,5 +259,6 @@
         private DataGridView dataGridView1;
         private Button buttonSearch;
         private Button buttonMyBooking;
+        private Button buttonLogout;
     }
 }

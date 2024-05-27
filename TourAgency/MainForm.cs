@@ -6,12 +6,15 @@ namespace TourAgency
     public partial class MainForm : Form
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly UserSession _userSession;
 
-        public MainForm(IServiceProvider serviceProvider)
+        public MainForm(IServiceProvider serviceProvider, UserSession userSession)
         {
             _serviceProvider = serviceProvider;
+            _userSession = userSession;
             InitializeComponent();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var authForm = _serviceProvider.GetRequiredService<AuthForm>();
@@ -21,22 +24,20 @@ namespace TourAgency
 
         private void AuthForm_UserAuthenticated(object sender, UserEventArgs e)
         {
-            var userSession = _serviceProvider.GetRequiredService<UserSession>();
-            userSession.CurrentUser = e.User;
+            _userSession.CurrentUser = e.User;
             if (e.User.IsAdmin)
             {
                 var manageToursForm = _serviceProvider.GetRequiredService<ManageToursForm>();
-                manageToursForm.FormClosed += (s, args) => this.Close();
+                manageToursForm.FormClosed += (s, args) => this.Show();
                 manageToursForm.Show();
             }
             else
             {
                 var viewToursForm = _serviceProvider.GetRequiredService<SearchToursForm>();
-                viewToursForm.FormClosed += (s, args) => this.Close();
+                viewToursForm.FormClosed += (s, args) => this.Show();
                 viewToursForm.Show();
             }
             this.Hide();
-
         }
     }
 }
